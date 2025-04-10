@@ -52,14 +52,14 @@ model, scaler = load_and_train_model()
 # 2. STREAMLIT UI
 # ================================
 st.title("🎓 Student Stress Prediction App")
-st.markdown("Isi faktor kehidupanmu sebagai mahasiswa, lalu lihat apakah kamu **berisiko stress** atau tidak.")
+st.markdown("Tell us about your daily habits and we'll predict your stress level!")
 
 # Input
-sleep_quality = st.slider("Sleep Quality (1-10)", 1, 10, 6)
-headaches = st.slider("Headaches per Week", 0, 7, 2)
-academic_perf = st.slider("Academic Performance (1-10)", 1, 10, 7)
-study_load = st.slider("Study Load (hours/day)", 0, 15, 5)
-extracurricular = st.slider("Extracurricular Activities per Week", 0, 10, 2)
+sleep_quality = st.slider("Sleep Quality (1-10)", 1, 5, 0)
+headaches = st.slider("Headaches per Week", 0, 5, 0)
+academic_perf = st.slider("Academic Performance (1-10)", 1, 5, 0)
+study_load = st.slider("Study Load (hours/day)", 0, 5, 0)
+extracurricular = st.slider("Extracurricular Activities per Week", 0, 5, 0)
 
 # Feature Engineering
 load_activity_ratio = study_load / (extracurricular + 1)
