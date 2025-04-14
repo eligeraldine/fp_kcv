@@ -28,7 +28,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # ========== HANDLE IMBALANCED DATA ==========
-# buat minority (not stress)
+# Untuk minority data (not stress)
 sm = SMOTE(random_state=42)
 X_res, y_res = sm.fit_resample(X_scaled, y)
 
@@ -46,8 +46,7 @@ param_grid = {
 }
 
 # cross-validation
-# 3 fold means dilatih di 2 bagian, diuji di 1 bagian, terus diulang 3x dengan bagian yang berbeda sebagai test.
-
+# 3 fold means dilatih di 2 bagian, diuji di 1 bagian, lalu diulang 3x dengan bagian yang berbeda sebagai test
 grid_search = GridSearchCV(model, param_grid, cv=3)
 grid_search.fit(X_train, y_train)
 
@@ -65,7 +64,7 @@ y_train_pred = best_model.predict(X_train)
 train_acc = accuracy_score(y_train, y_train_pred)
 print(f"\nTrain Accuracy: {train_acc:.4f}")
 
-# Evaluasi testing (dengan angka akurasi) masi overfit deh :)
+# Evaluasi testing (dengan angka akurasi)
 test_acc = accuracy_score(y_test, y_pred)
 print(f"Test Accuracy: {test_acc:.4f}")
 
